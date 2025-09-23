@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: space-between; /* tách trái – phải */
     align-items: center;
-    background-color: #4A90E2;
+    background-color: #5577fb;
     color: white;
     padding: 10px 20px;
 }
@@ -74,6 +74,7 @@ body {
     z-index: 1;         /* nâng lên trên content */
 }
 
+
 .sidebar ul {
     list-style: none;   /* bỏ dấu chấm */
     padding: 0;         /* bỏ padding mặc định */
@@ -83,6 +84,21 @@ body {
 
 .sidebar ul li {
     margin-bottom: 13px; /* cách nhau 15px */
+}
+.sidebar ul li a {
+    text-decoration: none; /* bỏ gạch dưới */
+    color: inherit;        /* giữ màu chữ bình thường */
+    display: block;        /* để hover ăn cả dòng */
+    padding:  5px;    /* tạo khoảng trống thành hình ô */
+    border-radius: 6px;    /* bo góc (tùy thích) */
+    transition: background 0.3s; /* hiệu ứng mượt */      /* thêm chút khoảng cách */
+}
+.sidebar ul li a:hover {
+    background-color: #f0f0f0; /* màu nền khi hover */
+    cursor: pointer;
+}
+.sidebar h6{
+    font-weight: bold;
 }
 
 .sidebar h7{
@@ -109,12 +125,14 @@ body {
     display: flex;
     gap: 20px;       /* khoảng cách giữa 2 ô */
     margin-bottom: 15px; /* khoảng cách giữa các hàng */
+
 }
 
 .form-row .form-group {
     flex: 1;           /* chiếm đều phần còn lại (50% nếu 2 ô) */
     display: flex;
     flex-direction: column; /* label trên input */
+
 
 }
 .form-row .form-group input {
@@ -124,4 +142,5 @@ body {
     border: 1px solid #ccc;   /* viền nhẹ */
     border-radius: 6px;       /* bo góc */
     box-sizing: border-box;   /* tính padding vào width */
+    background-color: #e5ecfa;
 }

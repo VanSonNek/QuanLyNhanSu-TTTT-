@@ -45,20 +45,33 @@
 
 <div class="layout">
 
-<div class="sidebar">
-    <h7>THÔNG TIN</h7>
-    <ul>
-        <li><i class="fa-solid fa-file-invoice-dollar"></i> Thông tin thuế</li>
-        <li><i class="fa-solid fa-money-bill-wave"></i> Thông tin lương</li>
-        <li><i class="fa-solid fa-shield-heart"></i> Thông tin bảo hiểm</li>
-    </ul>
-</div>
+    <div class="sidebar">
+        <h6>THÔNG TIN</h6>
+        <ul>
+            <li>
+                <a href="/app/tax-information">
+                    <i class="fa-solid fa-file-invoice-dollar"></i> Thông tin thuế
+                </a>
+            </li>
+            <li>
+                <a href="/app/salary-information">
+                    <i class="fa-solid fa-money-bill-wave"></i> Thông tin lương
+                </a>
+            </li>
+            <li>
+                <a href="/app/insurance-information">
+                    <i class="fa-solid fa-shield-heart"></i> Thông tin bảo hiểm
+                </a>
+            </li>
+        </ul>
+    </div>
 
-<!-- Content -->
+
+    <!-- Content -->
     <div class="content">
 
         <!-- Title -->
-        <h5>Thông Tin Thuế Cá Nhân</h5>
+        <h5>Thông Tin Bảo Hiểm</h5>
 
         <!-- Box bao quanh form -->
         <div class="form-box">
@@ -69,74 +82,54 @@
                         <input type="text" value="Nguyễn Tiến Dũng">
                     </div>
                     <div class="form-group">
-                        <label>Quyền - Chức vụ</label>
+                        <label>Ngày sinh</label>
                         <input type="text" value="Nhân viên">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Ngày sinh</label>
+                        <label>Chuyên môn</label>
                         <input type="text" value="15/06/2023">
                     </div>
-                    <div class="form-group">
-                        <label>Chuyên môn</label>
-                        <input type="text">
-                    </div>
-                </div>
-
-                <div class="form-row">
                     <div class="form-group">
                         <label>Trình độ</label>
                         <input type="text">
                     </div>
+                </div>
+
+                <div class="form-row">
                     <div class="form-group">
                         <label>Đơn vị</label>
                         <input type="text">
                     </div>
+
                 </div>
+
+
+                <div class="section-title"><h5>Thông tin chi tiết bảo hiểm</h5></div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Bảo hiểm</label>
+                        <label>Mã bảo hiểm</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Nơi đăng ký</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nơi cấp</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày cấp</label>
                         <input type="text">
                     </div>
                 </div>
 
-                <div class="section-title"><h5>Thông tin chi tiết thuế</h5></div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Mã thuế</label>
-                        <input type="text">
-                    </div>
-                    <div class="form-group">
-                        <label>Cơ quan quản lý</label>
-                        <input type="text">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Mã thuế</label>
-                        <input type="text">
-                    </div>
-                    <div class="form-group">
-                        <label>Cơ quan quản lý</label>
-                        <input type="text">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Ngày đăng ký</label>
-                        <input type="text">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Ghi chú</label>
-                        <input type="text">
-                    </div>
-                </div>
 
             </div>
         </div>

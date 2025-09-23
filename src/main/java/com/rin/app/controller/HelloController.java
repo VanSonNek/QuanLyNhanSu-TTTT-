@@ -17,7 +17,7 @@ public class HelloController {
     @GetMapping
     public String home(Model model) {
         model.addAttribute("message", "Trang chủ");
-        return "login"; // load hello.jsp
+        return "tax-information";
     }
 
     @GetMapping("login")
@@ -29,5 +29,20 @@ public class HelloController {
     public String regisTer(Model model) {
         model.addAttribute("message", "Hello World");
         return "register";
+    }
+    @GetMapping("tax-information")
+    public String taxinformation(Model model) {
+        model.addAttribute("message", "Hello World");
+        return "tax-information";
+    }
+    @GetMapping("salary-information")
+    public String salaryinformation(Model model) {
+        model.addAttribute("message", "Hello World");
+        return "salary-information";
+    }
+    @GetMapping("insurance-information")
+    public String insuranceinformation(Model model) {
+        model.addAttribute("message", "Hello World");
+        return "insurance-information";
     }
 }
