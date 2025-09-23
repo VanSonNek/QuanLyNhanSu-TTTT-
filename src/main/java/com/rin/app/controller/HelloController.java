@@ -17,12 +17,17 @@ public class HelloController {
     @GetMapping
     public String home(Model model) {
         model.addAttribute("message", "Trang chủ");
-        return "hello"; // load hello.jsp
+        return "login"; // load hello.jsp
     }
 
-    @GetMapping("Them")
+    @GetMapping("login")
     public String helloController(Model model) {
         model.addAttribute("message", "Hello World");
-        return "hello";
+        return "login";
+    }
+    @GetMapping("register")
+    public String regisTer(Model model) {
+        model.addAttribute("message", "Hello World");
+        return "register";
     }
 }

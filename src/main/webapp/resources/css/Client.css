@@ -119,8 +119,8 @@ body {
 }
 .form-row .form-group input {
     padding: 10px 12px;      /* tăng padding cho input */
-    font-size: 16px;          /* chữ to hơn */
-    height: 45px;             /* chiều cao ô */
+    font-size: 15px;          /* chữ to hơn */
+    height: 40px;             /* chiều cao ô */
     border: 1px solid #ccc;   /* viền nhẹ */
     border-radius: 6px;       /* bo góc */
     box-sizing: border-box;   /* tính padding vào width */
