@@ -5,54 +5,108 @@ body {
 }
 .header {
     display: flex;
-    justify-content: space-between; /* tách trái – phải */
-    align-items: center;
-    background-color: #5577fb;
     color: white;
-    padding: 10px 20px;
 }
 
+/* phần trái */
 .header-left {
     display: flex;
     align-items: center;
     gap: 10px;
+    background-color: #4657c3;
+    padding: 10px 26.5px;
 }
+
 .header-left .title {
     font-size: 17px;
     font-weight: bold;
     line-height: 1.2;
     text-align: center;
     margin-left: 20px;
-
 }
+
+/* phần phải */
 .header-right {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background-color: #6887ff;
+  /* màu khác cho phần phải */
     flex: 1; /* chiếm hết phần còn lại */
+    padding: 10px 20px;
 }
 
-
-.header-right > *:not(.right-group) {
-    margin-right: 25px; /* khoảng cách giữa |, menu và nhóm phải */
-}
-.header-right .right-group {
+.right-group {
     display: flex;
     align-items: center;
     gap: 25px;
-    margin-left: auto;   /* ⬅️ đẩy cả nhóm sang phải */
+    margin-left: auto;
 }
 
 .user-info {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
+    cursor: pointer;
 }
+
 .user-info img {
     border-radius: 50%;
 }
+/* menu ẩn mặc định */
+.dropdown-menu {
+    position: absolute;
+    top: 200%;   /* ngay dưới user-info */
+    right: -8%;
+    background: white;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+
+}
+
+
+.dropdown-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #555454;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f0f0;
+}
+.dropdown-menu a i {
+    margin-right: 8px; /* cách icon và chữ 8px */
+}
+.dropdown-menu hr {
+    margin: 3px 0;   /* giảm khoảng cách trên/dưới */
+    border: none;    /* bỏ border mặc định */
+    border-top: 2px solid #b8b6b6; /* kẻ đường mảnh */
+}
+
+.user-info:hover .dropdown-menu {
+    display: flex;
+}
+
+/* cầu nối vô hình */
+.user-info:hover::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 50px; /* khoảng cách để nối */
+}
 .dash-mark{
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 

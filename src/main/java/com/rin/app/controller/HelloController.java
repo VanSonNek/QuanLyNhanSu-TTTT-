@@ -45,4 +45,9 @@ public class HelloController {
         model.addAttribute("message", "Hello World");
         return "insurance-information";
     }
+    @GetMapping("personal-information")
+    public String personalinformation(Model model) {
+        model.addAttribute("message", "Hello World");
+        return "personal-information";
+    }
 }
