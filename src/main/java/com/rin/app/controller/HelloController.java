@@ -17,7 +17,7 @@ public class HelloController {
     @GetMapping
     public String home(Model model) {
         model.addAttribute("message", "Trang chủ");
-        return "tax-information";
+        return "Admin/home";
     }
 
     @GetMapping("login")
@@ -49,5 +49,10 @@ public class HelloController {
     public String personalinformation(Model model) {
         model.addAttribute("message", "Hello World");
         return "personal-information";
+    }
+    @GetMapping("home-admin")
+    public String homeadmin(Model model) {
+        model.addAttribute("message", "Hello World");
+        return "Admin/home";
     }
 }
