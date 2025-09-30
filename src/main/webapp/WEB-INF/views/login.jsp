@@ -20,19 +20,39 @@
 <body>
 <div class="login-box">
     <h2>ĐĂNG NHẬP</h2>
-    <form>
-        <input type="email" class="form-input" placeholder="Email" required>
-        <input type="password" class="form-input" placeholder="Mật khẩu" required>
+<%--    <form:form method="post" action="login" modelAttribute="loginRequest">--%>
+<%--        <h5>Login</h5>--%>
+<%--        <div class="mb-3">--%>
+<%--            <label class="form-label">Email</label>--%>
+<%--            <form:input path="email" cssClass="form-control"/>--%>
+<%--            <form:errors path="email" cssClass="text-danger"/>--%>
+<%--        </div>--%>
+
+<%--        <div class="mb-3">--%>
+<%--            <label class="form-label">MK</label>--%>
+<%--            <form:input path="password" cssClass="form-control"/>--%>
+<%--            <form:errors path="password" cssClass="text-danger"/>--%>
+<%--        </div>--%>
+
+
+<%--        <div class="text-center">--%>
+<%--            <button type="submit" class="btn btn-success">Login</button>--%>
+<%--        </div>--%>
+<%--    </form:form>--%>
+
+    <form:form action="login" method="post" modelAttribute="loginRequest">
+        <form:input path="email" type="email" class="form-input" placeholder="Email" required="true"/>
+        <form:password path="password" class="form-input" placeholder="Mật khẩu" required="true"/>
 
         <div class="remember">
-            <input type="checkbox" id="remember">
+            <input type="checkbox" id="remember"/>
             <label for="remember">Nhớ mật khẩu</label>
         </div>
 
         <button type="submit" class="btn btn-login">Đăng nhập</button>
         <button type="button" class="btn btn-google">Đăng nhập với Google</button>
         <button type="button" class="btn btn-facebook">Đăng nhập với Facebook</button>
-    </form>
+    </form:form>
     <a href="/app/register" class="create-account">Tạo tài khoản mới</a>
 </div>
 </body>

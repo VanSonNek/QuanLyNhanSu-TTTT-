@@ -1,5 +1,6 @@
 package com.rin.app.controller;
 
+import com.rin.app.dto.request.LoginRequest;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,20 +17,16 @@ public class HelloController {
 
     @GetMapping
     public String home(Model model) {
-        model.addAttribute("message", "Trang chủ");
-        return "Admin/home";
+        model.addAttribute("loginRequest", new LoginRequest());
+        return "redirect:/user/login";
     }
 
-    @GetMapping("login")
-    public String helloController(Model model) {
-        model.addAttribute("message", "Hello World");
-        return "login";
-    }
     @GetMapping("register")
     public String regisTer(Model model) {
         model.addAttribute("message", "Hello World");
         return "register";
     }
+
     @GetMapping("tax-information")
     public String taxinformation(Model model) {
         model.addAttribute("message", "Hello World");

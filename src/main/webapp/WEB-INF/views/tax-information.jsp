@@ -126,16 +126,7 @@
 
                 <div class="section-title"><h5>Thông tin chi tiết thuế</h5></div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Mã thuế</label>
-                        <input type="text">
-                    </div>
-                    <div class="form-group">
-                        <label>Cơ quan quản lý</label>
-                        <input type="text">
-                    </div>
-                </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label>Mã thuế</label>

@@ -24,12 +24,11 @@
     <div class="header-left">
         <i class="fa-solid fa-user-tie fa-lg"></i>
         <div class="title">Quản Lý Thông <br> Tin</div>
-    </div>
-    <div class="header-right">
-        <div style="margin-left: 30px">|</div>
-        <div class="dash-mark"><i class="fa-solid fa-bars"></i></div>
 
-        <!-- nhóm search trở đi -->
+    </div>
+
+    <div class="header-right">
+        <div class="dash-mark"><i class="fa-solid fa-bars"></i></div>
         <div class="right-group">
             <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
             <div><i class="fa-regular fa-bell"></i></div>
@@ -37,10 +36,18 @@
             <div class="user-info">
                 <img src="https://via.placeholder.com/30" alt="User Avatar">
                 <span>Hồ Văn Sơn (nhân viên)</span>
+
+                <!-- menu dropdown -->
+                <div class="dropdown-menu">
+                    <a href="/app/personal-information"><i class="fa-solid fa-user-tie"></i> Thông tin cá nhân</a>
+                    <a href="#"><i class="fa-solid fa-gear"></i> Chỉnh sửa</a>
+                    <hr>
+                    <a href="/app/login"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+                </div>
+
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="layout">
