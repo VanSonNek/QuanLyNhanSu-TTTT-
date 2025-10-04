@@ -1,12 +1,10 @@
 package com.rin.app.repository;
 
 import com.rin.app.entity.TaxInformation;
-import com.rin.app.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email);
+public interface TaxInformationRepository extends JpaRepository<TaxInformation, Long> {
+    List<TaxInformation> findByUserId(Long userId);
 }

@@ -1,11 +1,15 @@
 package com.rin.app.service;
 
+import com.rin.app.entity.Insuranceinformation;
+import com.rin.app.entity.TaxInformation;
 import com.rin.app.entity.User;
 import com.rin.app.repository.UserRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -22,5 +26,10 @@ public class UserService {
             throw new RuntimeException("Wrong password");
         }
         return user; // trả về user nếu đúng
+    }
+
+    public User findByUserId(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with id " + userId));
     }
 }

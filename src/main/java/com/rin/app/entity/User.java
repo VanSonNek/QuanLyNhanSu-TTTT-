@@ -49,7 +49,26 @@ public class User {
     @Column(length = 255)
     String diaChi;
 
+    @Column(length = 30)
+    String chuyenMon;
 
+    @Column(length = 255)
+    String role;
+
+    @Column(length = 30)
+    String trinhDo;
+
+    @Column(length = 30)
+    String donvi;
+
+    
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     List<TaxInformation> taxInformations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Insuranceinformation> insuranceInformations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<SalaryInformation> salaryInformations = new ArrayList<>();
+
 }

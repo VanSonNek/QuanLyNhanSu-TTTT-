@@ -35,14 +35,14 @@
             <div>|</div>
             <div class="user-info">
                 <img src="https://via.placeholder.com/30" alt="User Avatar">
-                <span>Hồ Văn Sơn (nhân viên)</span>
+                <span>${users.username} (${users.role})</span>
 
                 <!-- menu dropdown -->
                 <div class="dropdown-menu">
                     <a href="/app/personal-information"><i class="fa-solid fa-user-tie"></i> Thông tin cá nhân</a>
                     <a href="#"><i class="fa-solid fa-gear"></i> Chỉnh sửa</a>
                     <hr>
-                    <a href="/app/login"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+                    <a href="/app/user/logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
                 </div>
 
             </div>
@@ -86,29 +86,30 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Họ và tên</label>
-                        <input type="text" value="Nguyễn Tiến Dũng">
+                        <input type="text" value="${users.username}">
                     </div>
                     <div class="form-group">
                         <label>Ngày sinh</label>
-                        <input type="text" value="Nhân viên">
+                        <input type="text" value="${users.ngaySinh}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Chuyên môn</label>
-                        <input type="text" value="15/06/2023">
+                        <input type="text" value="${users.chuyenMon}">
                     </div>
                     <div class="form-group">
                         <label>Trình độ</label>
-                        <input type="text">
+                        <input type="text" value="${users.trinhDo}">
+
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Đơn vị</label>
-                        <input type="text">
+                        <input type="text" value="${users.donvi}">
                     </div>
 
                 </div>
@@ -119,21 +120,21 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Mã bảo hiểm</label>
-                        <input type="text">
+                        <input type="text" value="${insuran.insuranceCode}">
                     </div>
                     <div class="form-group">
                         <label>Nơi đăng ký</label>
-                        <input type="text">
+                        <input type="text" value="${insuran.registerPlace}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Nơi cấp</label>
-                        <input type="text">
+                        <input type="text" value="${insuran.issuePlace}">
                     </div>
                     <div class="form-group">
                         <label>Ngày cấp</label>
-                        <input type="text">
+                        <input type="text" value="${insuran.issueDate}">
                     </div>
                 </div>
 

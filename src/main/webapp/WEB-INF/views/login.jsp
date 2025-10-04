@@ -20,25 +20,7 @@
 <body>
 <div class="login-box">
     <h2>ĐĂNG NHẬP</h2>
-<%--    <form:form method="post" action="login" modelAttribute="loginRequest">--%>
-<%--        <h5>Login</h5>--%>
-<%--        <div class="mb-3">--%>
-<%--            <label class="form-label">Email</label>--%>
-<%--            <form:input path="email" cssClass="form-control"/>--%>
-<%--            <form:errors path="email" cssClass="text-danger"/>--%>
-<%--        </div>--%>
 
-<%--        <div class="mb-3">--%>
-<%--            <label class="form-label">MK</label>--%>
-<%--            <form:input path="password" cssClass="form-control"/>--%>
-<%--            <form:errors path="password" cssClass="text-danger"/>--%>
-<%--        </div>--%>
-
-
-<%--        <div class="text-center">--%>
-<%--            <button type="submit" class="btn btn-success">Login</button>--%>
-<%--        </div>--%>
-<%--    </form:form>--%>
 
     <form:form action="login" method="post" modelAttribute="loginRequest">
         <form:input path="email" type="email" class="form-input" placeholder="Email" required="true"/>

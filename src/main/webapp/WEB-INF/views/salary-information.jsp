@@ -35,14 +35,14 @@
       <div>|</div>
       <div class="user-info">
         <img src="https://via.placeholder.com/30" alt="User Avatar">
-        <span>Hồ Văn Sơn (nhân viên)</span>
+        <span>${users.username} (${users.role})</span>
 
         <!-- menu dropdown -->
         <div class="dropdown-menu">
           <a href="/app/personal-information"><i class="fa-solid fa-user-tie"></i> Thông tin cá nhân</a>
           <a href="#"><i class="fa-solid fa-gear"></i> Chỉnh sửa</a>
           <hr>
-          <a href="/app/login"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+          <a href="/app/user/logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
         </div>
 
       </div>
@@ -73,6 +73,43 @@
     </ul>
   </div>
 
+  <div class="content p-4" >
+    <h3 class="mb-4">Bảng Thống Kê Lương</h3>
+
+    <div class="card p-3 shadow-sm">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle text-center">
+          <thead class="table-primary">
+          <tr>
+            <th>Tháng</th>
+            <th>Tên NV</th>
+            <th>Lương Cơ Bản</th>
+            <th>Thuế</th>
+            <th>Thưởng</th>
+            <th>Tổng Thực Nhận</th>
+          </tr>
+          </thead>
+          <tbody>
+          <c:if test="${empty salaryList}">
+            <tr>
+              <td colspan="6" class="text-muted">Không có dữ liệu</td>
+            </tr>
+          </c:if>
+          <c:forEach var="s" items="${salaryList}">
+            <tr>
+              <td>${s.month}</td>
+              <td>${s.employeeName}</td>
+              <td>${s.basicSalary}</td>
+              <td>${s.tax}</td>
+              <td>${s.bonus}</td>
+              <td><strong>${s.totalReceived}</strong></td>
+            </tr>
+          </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
 
 </div>

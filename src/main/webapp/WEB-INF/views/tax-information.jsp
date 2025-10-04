@@ -35,14 +35,14 @@
             <div>|</div>
             <div class="user-info">
                 <img src="https://via.placeholder.com/30" alt="User Avatar">
-                <span>Hồ Văn Sơn (nhân viên)</span>
+                <span>${users.username} (${users.role})</span>
 
                 <!-- menu dropdown -->
                 <div class="dropdown-menu">
                     <a href="/app/personal-information"><i class="fa-solid fa-user-tie"></i> Thông tin cá nhân</a>
                     <a href="#"><i class="fa-solid fa-gear"></i> Chỉnh sửa</a>
                     <hr>
-                    <a href="/app/login"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+                    <a href="/app/user/logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
                 </div>
 
             </div>
@@ -87,66 +87,68 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Họ và tên</label>
-                        <input type="text" value="Nguyễn Tiến Dũng">
+                        <input type="text" value="${users.username}">
                     </div>
                     <div class="form-group">
-                        <label>Quyền - Chức vụ</label>
-                        <input type="text" value="Nhân viên">
+                        <label>Quyền</label>
+                        <input type="text" value="${users.role}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Ngày sinh</label>
-                        <input type="text" value="15/06/2023">
+                        <input type="text" value="${users.ngaySinh}">
                     </div>
                     <div class="form-group">
                         <label>Chuyên môn</label>
-                        <input type="text">
+                        <input type="text" value="${users.chuyenMon}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Trình độ</label>
-                        <input type="text">
+                        <input type="text" value="${users.trinhDo}">
                     </div>
                     <div class="form-group">
                         <label>Đơn vị</label>
-                        <input type="text">
+                        <input type="text" value="${users.donvi}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Bảo hiểm</label>
-                        <input type="text">
+                        <input type="text" value="${insuran.registerPlace}">
                     </div>
                 </div>
 
                 <div class="section-title"><h5>Thông tin chi tiết thuế</h5></div>
 
-
                 <div class="form-row">
                     <div class="form-group">
                         <label>Mã thuế</label>
-                        <input type="text">
+                        <input type="text" value="${tax.taxCode}">
                     </div>
                     <div class="form-group">
                         <label>Cơ quan quản lý</label>
-                        <input type="text">
+                        <input type="text" value="${tax.authority}">
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label>Ngày đăng ký</label>
-                        <input type="text">
+                        <input type="text" value="${tax.registerDate}">
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group">
                         <label>Ghi chú</label>
-                        <input type="text">
+                        <input type="text" value="${tax.note}">
+
                     </div>
                 </div>
 
