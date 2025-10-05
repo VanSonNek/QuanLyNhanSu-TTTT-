@@ -29,36 +29,36 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Ảnh đại diện</label>
-                        <input type="text" value="Nguyễn Tiến Dũng" class="name">
+                        <input type="text" value="${users.username}" class="name">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Họ và tên</label>
-                        <input type="text" value="15/06/2023">
+                        <input type="text" value="${users.username}">
                     </div>
                     <div class="form-group">
                         <label>Ngày sinh</label>
-                        <input type="text">
+                        <input type="text" value="${users.ngaySinh}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Chuyên mon</label>
-                        <input type="text">
+                        <input type="text" value="${users.chuyenMon}">
                     </div>
                     <div class="form-group">
                         <label>Trình độ</label>
-                        <input type="text">
+                        <input type="text" value="${users.trinhDo}">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text"  class="email">
+                        <input type="text" value="${users.email}" class="email">
                     </div>
                     <div class="form-group">
                         <label>Số điện thoại</label>
@@ -69,7 +69,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Địa chỉ</label>
-                        <input type="text">
+                        <input type="text" value="${users.diaChi}">
                     </div>
 
                 </div>

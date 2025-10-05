@@ -7,7 +7,7 @@ import lombok.experimental.FieldDefaults;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "insurance-information")
+@Table(name = "insurance_information")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

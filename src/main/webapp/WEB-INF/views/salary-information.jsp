@@ -98,7 +98,7 @@
           <c:forEach var="s" items="${salaryList}">
             <tr>
               <td>${s.month}</td>
-              <td>${s.employeeName}</td>
+              <td>${s.user.username}</td>
               <td>${s.basicSalary}</td>
               <td>${s.tax}</td>
               <td>${s.bonus}</td>

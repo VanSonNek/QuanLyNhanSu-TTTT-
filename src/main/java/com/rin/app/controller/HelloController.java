@@ -2,9 +2,11 @@ package com.rin.app.controller;
 
 import com.rin.app.dto.request.LoginRequest;
 import com.rin.app.entity.Insuranceinformation;
+import com.rin.app.entity.SalaryInformation;
 import com.rin.app.entity.TaxInformation;
 import com.rin.app.entity.User;
 import com.rin.app.service.InsuranceInformationService;
+import com.rin.app.service.SalaryInformationService;
 import com.rin.app.service.TaxInformationService;
 import com.rin.app.service.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -27,6 +29,7 @@ import java.util.List;
 public class HelloController {
     private final TaxInformationService taxInformationService;
     private final InsuranceInformationService insuranceInformationService;
+    private final SalaryInformationService salaryInformationService;
     private final UserService userService;
     @GetMapping
     public String home(Model model) {
@@ -59,12 +62,24 @@ public class HelloController {
         }
         return "tax-information";
     }
-    
+
     @GetMapping("salary-information")
-    public String salaryinformation(Model model) {
-        model.addAttribute("message", "Hello World");
-        return "salary-information";
+    public String salaryinformation(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("userId");
+
+        User user = userService.findByUserId(userId);
+        if (user != null) {
+            model.addAttribute("users", user);
+            // Lấy danh sách lương của user đó
+            List<SalaryInformation> salaryList = salaryInformationService.getSalaryByUserId(userId);
+            model.addAttribute("salaryList", salaryList);
+        } else {
+            model.addAttribute("salaryList", List.of());
+        }
+
+        return "salary-information"; // JSP tên salary-information.jsp
     }
+
     @GetMapping("insurance-information")
     public String insuranceinformation(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("userId");
@@ -79,8 +94,12 @@ public class HelloController {
         return "insurance-information";
     }
     @GetMapping("personal-information")
-    public String personalinformation(Model model) {
-        model.addAttribute("message", "Hello World");
+    public String personalinformation(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("userId");
+        User user = userService.findByUserId(userId);
+        if (user != null) {
+            model.addAttribute("users", user); // đúng kiểu User
+        }
         return "personal-information";
     }
     @GetMapping("home-admin")
