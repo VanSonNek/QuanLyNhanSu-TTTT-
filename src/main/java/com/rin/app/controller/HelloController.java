@@ -103,8 +103,23 @@ public class HelloController {
         return "personal-information";
     }
     @GetMapping("home-admin")
-    public String homeadmin(Model model) {
-        model.addAttribute("message", "Hello World");
+    public String homeadmin(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("userId");
+        User user = userService.findByUserId(userId);
+        if (user != null) {
+            model.addAttribute("users", user); // đúng kiểu User
+        }
         return "Admin/home";
+    }
+    @GetMapping("tax-admin")
+    public String taxadmin(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("userId");
+        List<TaxInformation> taxList = taxInformationService.findAllTax();
+        User user = userService.findByUserId(userId);
+        if (user != null) {
+            model.addAttribute("users", user); // đúng kiểu User
+        }
+        model.addAttribute("taxList", taxList);
+        return "Admin/tax";
     }
 }

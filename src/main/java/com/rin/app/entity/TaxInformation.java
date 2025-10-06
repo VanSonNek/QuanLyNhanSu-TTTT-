@@ -30,6 +30,12 @@ public class TaxInformation {
     @Column(columnDefinition = "TEXT")
     String note; // ghi chú
 
+    @Column(length = 255)
+    String address;
+
+    @Column(length = 20)
+    String phone;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false) // khóa ngoại

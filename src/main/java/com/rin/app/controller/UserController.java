@@ -51,7 +51,14 @@ UserService userService;
 
             // (Tuỳ chọn) in log để kiểm tra
             log.warn("Đăng nhập thành công: userId = " + user.getRole());
-            return "redirect:/tax-information";
+            if (user.getRole().equalsIgnoreCase("Quản lý")) {
+                return "redirect:/home-admin"; // trang dành cho Quản lý
+            } else if (user.getRole().equalsIgnoreCase("Nhân viên")) {
+                return "redirect:/tax-information";
+            } else {
+                // Nếu role khác, mặc định quay về trang chung
+                return "redirect:/home";
+            }
         } catch (Exception e) {
             return "/login";
         }

@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <%@ page isELIgnored="false"%>
 
 <html>
@@ -68,7 +70,7 @@
                 <details>
                     <summary><i class="fa-solid fa-shield-heart"></i> Thuế - Bảo hiểm</summary>
                     <ul class="submenu">
-                        <li><a href="/app/tax-admin"><i class="fa-solid fa-file-invoice-dollar"></i> Quản lý cơ quan thuế</a></li>
+                        <li><a href="/app/tax-admin"><i class="fa-solid fa-file-invoice-dollar"></i> Cơ quan quaản lý thuế</a></li>
                         <li><a href="/app/insurance-information"><i class="fa-solid fa-hand-holding-medical"></i> Bảo hiểm xã hội</a></li>
                     </ul>
                 </details>
@@ -110,88 +112,77 @@
     </div>
 
 
-<div class="content">
-   <h5> Ứng dụng Website</h5>
+    <div class="main-content">
+        <h3 class="mb-3">Quản lý Cơ quan Thuế</h3>
+        <div class="card shadow-sm p-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold text-primary">Danh sách Cơ quan Thuế</h5>
+                <button class="btn btn-success">Thêm cơ quan mới</button>
+            </div>
 
-   <h3> QUẢN LÝ NHÂN SỰ</h3>
-   <h7> Mọi thông tin liên hệ <a href="">đội ngũ hỗ trợ</a></h7>
-
-    <div class="dashboard">
-        <div class="card">
-            <div class="card-header">
-                <img src="https://img.icons8.com/fluency/48/000000/combo-chart.png" alt="Thống Kê Lương">
-                <div class="card-title">
-                    <h3>Thống Kê Lương</h3>
-                    <span class="subtitle">Xem danh sách bảng lương</span>
+            <!-- Bộ lọc -->
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                    Show
+                    <select class="form-select d-inline-block w-auto">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                    entries
+                </div>
+                <div>
+                    <label>Search:
+                        <input type="search" class="form-control d-inline-block w-auto" placeholder="Tìm cơ quan...">
+                    </label>
                 </div>
             </div>
-            <p>Danh sách tổng hợp bảng lương theo tháng của nhân viên công ty.</p>
-            <a href="#">Xem ngay ></a>
-        </div>
 
-        <div class="card">
-            <div class="card-header">
-                <img src="https://img.icons8.com/fluency/48/000000/money.png" alt="Bậc Lương">
-                <div class="card-title">
-                    <h3>Bậc Lương</h3>
-                    <span class="subtitle">Xem danh sách bậc lương</span>
-                </div>
-            </div>
-            <p>Danh sách các bậc lương của nhân viên công ty.</p>
-            <a href="#">Xem ngay ></a>
-        </div>
+            <!-- Bảng dữ liệu -->
+            <table class="table table-striped align-middle table-bordered">
+                <thead class="table-light">
+                <tr>
+                    <th>Mã cơ quan</th>
+                    <th>Tên cơ quan quản lý thuế</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Ghi chú</th>
+                    <th>Ngày đăng ký</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="tax" items="${taxList}">
+                    <tr>
+                        <td>${tax.taxCode}</td>
+                        <td>${tax.authority}</td>
+                        <td>${tax.address}</td>
+                        <td>${tax.phone}</td>
+                        <td>${tax.note}</td>
+                        <td>${tax.registerDate}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Sửa</button>
+                            <button class="btn btn-danger btn-sm">Xóa</button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
 
-        <div class="card">
-            <div class="card-header">
-                <img src="https://img.icons8.com/fluency/48/000000/tax.png" alt="Thuế TNCN">
-                <div class="card-title">
-                    <h3>Thuế TNCN</h3>
-                    <span class="subtitle">Thuế thu nhập cá nhân</span>
-                </div>
+            <!-- Phân trang -->
+            <div class="d-flex justify-content-between align-items-center">
+                <div>Showing ${fn:length(taxList)} entries</div>
+                <nav>
+                    <ul class="pagination mb-0">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
             </div>
-            <p>Danh sách thuế thu nhập cá nhân của nhân viên công ty.</p>
-            <a href="#">Xem ngay ></a>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <img src="https://img.icons8.com/fluency/48/000000/user.png" alt="Nhân Sự">
-                <div class="card-title">
-                    <h3>Nhân Sự</h3>
-                    <span class="subtitle">Nhân sự của công ty </span>
-                </div>
-            </div>
-            <p>Danh sách nhân viên của công ty.</p>
-            <a href="#">Xem ngay ></a>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <img src="https://img.icons8.com/fluency/48/000000/insurance.png" alt="Bảo Hiểm">
-                <div class="card-title">
-                    <h3>Bảo Hiểm</h3>
-                    <span class="subtitle">Bảo hiểm lao động</span>
-                </div>
-            </div>
-            <p>Danh sách các loại bảo hiểm lao động của công ty.</p>
-            <a href="#">Xem ngay ></a>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <img src="https://img.icons8.com/fluency/48/000000/settings.png" alt="Phân Quyền">
-                <div class="card-title">
-                    <h3>Phân Quyền</h3>
-                    <span class="subtitle">Phân quền cho các tài khoảng</span>
-                </div>
-            </div>
-            <p>Phân loại quyền truy cập và chức năng của các tài khoản.</p>
-            <a href="#">Xem ngay ></a>
         </div>
     </div>
 
-
-</div>
 
 </div>
 </body>

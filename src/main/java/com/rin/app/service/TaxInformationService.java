@@ -20,4 +20,8 @@ public class TaxInformationService {
     public List<TaxInformation> findByUserId(Long userId) {
         return taxInformationRepository.findByUserId(userId);
     }
+    public List<TaxInformation> findAllTax() {
+        return taxInformationRepository.findAll();
+    }
+
 }

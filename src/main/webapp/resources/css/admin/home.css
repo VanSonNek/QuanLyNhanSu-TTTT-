@@ -117,6 +117,67 @@ body {
 .layout input{
     color: #777777;
 }
+/* ====== SUBMENU (Thuế - Bảo hiểm) ====== */
+.sidebar details {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ẩn mũi tên mặc định */
+.sidebar summary::-webkit-details-marker {
+    display: none;
+}
+
+/* summary (dòng cha) */
+.sidebar summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 3px 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.sidebar summary:hover {
+    background-color: #e0e0e0;
+}
+
+/* ====== submenu chỉ xuất hiện khi mở ====== */
+.sidebar .submenu {
+    list-style: none;
+    /*padding: 5px 10px;*/
+    /*margin: 6px 10px 8px 25px;*/
+    margin-left: 4px;
+    border-radius: 8px;
+    background-color: #f8f8f8; /* nền xanh nhạt */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* đổ bóng mềm */
+    display: none; /* ẩn mặc định */
+}
+
+/* Khi mở details => hiển thị submenu */
+.sidebar details[open] .submenu {
+    display: block;
+}
+
+/* style cho các item trong submenu */
+.sidebar .submenu li {
+    margin-bottom: 6px;
+}
+
+.sidebar .submenu li a {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    padding: 7px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar .submenu li a:hover {
+    background-color: #dbe3ff;
+    color: #222;
+}
 
 .sidebar {
     width: 225px;    /* Sidebar cố định chiều rộng */
@@ -257,6 +318,26 @@ body {
     font-size: 13px;
     color: #666;
 }
+
+/* ==== MAIN CONTENT ==== */
+.main-content {
+    flex: 1; /* chiếm toàn bộ phần còn lại bên phải sidebar */
+    padding: 10px 20px;
+
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.main-content h3 {
+    color: #555;
+    font-weight: 600;
+}
+
 
 
 
