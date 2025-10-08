@@ -69,7 +69,7 @@
                     <summary><i class="fa-solid fa-shield-heart"></i> Thuế - Bảo hiểm</summary>
                     <ul class="submenu">
                         <li><a href="/app/tax-admin"><i class="fa-solid fa-file-invoice-dollar"></i> Quản lý cơ quan thuế</a></li>
-                        <li><a href="/app/insurance-information"><i class="fa-solid fa-hand-holding-medical"></i> Bảo hiểm xã hội</a></li>
+                        <li><a href="/app/insuran-admin"><i class="fa-solid fa-hand-holding-medical"></i> Bảo hiểm xã hội</a></li>
                     </ul>
                 </details>
             </li>
@@ -78,8 +78,8 @@
                 <details>
                     <summary><i class="fa-solid fa-money-bill-wave"></i> Nhân viên - Lương</summary>
                     <ul class="submenu">
-                        <li><a href="/app/tax-information"><i class="fa-solid fa-file-invoice-dollar"></i> Nhân viên</a></li>
-                        <li><a href="/app/insurance-information"><i class="fa-solid fa-hand-holding-medical"></i> Lương thưởng</a></li>
+                        <li><a href="/app/staff-admin"><i class="fa-solid fa-file-invoice-dollar"></i> Nhân viên</a></li>
+                        <li><a href="/app/salary-admin"><i class="fa-solid fa-hand-holding-medical"></i> Lương thưởng</a></li>
                     </ul>
                 </details>
             </li>
@@ -90,7 +90,7 @@
                 </a>
             </li>
             <li>
-                <a href="/app/insurance-information">
+                <a href="/app/decentralization-admin">
                     <i class="fa-solid fa-gears"></i> Phân quyền
                 </a>
             </li>

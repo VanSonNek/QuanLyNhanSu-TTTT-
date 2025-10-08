@@ -21,4 +21,7 @@ public class InsuranceInformationService {
     public List<Insuranceinformation> findByUserId(Long userId) {
         return insuranceInformationRepository.findByUserId(userId);
     }
+    public List<Insuranceinformation> findAllTax() {
+        return insuranceInformationRepository.findAll();
+    }
 }

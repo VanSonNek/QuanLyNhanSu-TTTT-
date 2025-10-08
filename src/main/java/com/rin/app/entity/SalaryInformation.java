@@ -33,6 +33,16 @@ public class SalaryInformation {
     @Column(precision = 15, scale = 2)
     BigDecimal tax; // Thuế khấu trừ
 
+    @Column(length = 50)
+    String educationLevel; // Trình độ (VD: CĐ, CH)
+
+    @Column(length = 100)
+    String department; // Đơn vị (VD: Phòng Kế toán – Tài chính)
+
+    @Column(length = 100)
+    String specialization; // Chuyên môn (VD: Kế toán, Quản lý)
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     User user;

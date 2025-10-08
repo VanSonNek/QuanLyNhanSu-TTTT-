@@ -63,10 +63,10 @@
             </li>
 
         </ul>
-
         <hr>
         <h6>QUẢN LÝ</h6>
         <ul>
+
             <li>
                 <details>
                     <summary><i class="fa-solid fa-shield-heart"></i> Thuế - Bảo hiểm</summary>
@@ -109,16 +109,16 @@
             </li>
 
         </ul>
-
     </div>
 
 
     <div class="main-content">
-        <h3 class="mb-3">Quản lý Cơ quan Thuế</h3>
+        <h3 class="mb-3">Danh sách nhân viên</h3>
         <div class="card shadow-sm p-3">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold text-primary">Danh sách Cơ quan Thuế</h5>
-                <button class="btn btn-success">Thêm cơ quan mới</button>
+                <h5 class="fw-bold text-primary">Nhân viên</h5>
+                <button class="btn btn-primary">Thêm Nhân viên</button>
+                <button class="btn btn-success">Xuất File</button>
             </div>
 
             <!-- Bộ lọc -->
@@ -143,24 +143,31 @@
             <table class="table table-striped align-middle table-bordered">
                 <thead class="table-light">
                 <tr>
-                    <th>Mã cơ quan</th>
-                    <th>Tên cơ quan quản lý thuế</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Ghi chú</th>
-                    <th>Ngày đăng ký</th>
+                    <th>Ảnh</th>
+                    <th>Họ tên</th>
+                    <th>Đơn vị</th>
+                    <th>Chuyên môn</th>
+                    <th>Lương cơ bản</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="tax" items="${taxList}">
+                <c:forEach var="userlist" items="${userlist}">
                     <tr>
-                        <td>${tax.taxCode}</td>
-                        <td>${tax.authority}</td>
-                        <td>${tax.address}</td>
-                        <td>${tax.phone}</td>
-                        <td>${tax.note}</td>
-                        <td>${tax.registerDate}</td>
+                        <td>Ảnh</td>
+                        <td>${userlist.username}</td>
+                        <td>${userlist.donvi}</td>
+                        <td>${userlist.chuyenMon}</td>
+                        <td>
+                            <c:if test="${not empty userlist.salaryInformations}">
+                                ${userlist.salaryInformations[0].basicSalary}
+                            </c:if>
+                        </td>
+                        <td>${userlist.ngaySinh}</td>
+                        <td>${userlist.gioiTinh}</td>
+
                         <td>
                             <button class="btn btn-warning btn-sm">Sửa</button>
                             <button class="btn btn-danger btn-sm">Xóa</button>
@@ -172,7 +179,7 @@
 
             <!-- Phân trang -->
             <div class="d-flex justify-content-between align-items-center">
-                <div>Showing ${fn:length(taxList)} entries</div>
+                <div>Showing ${fn:length(userlist)} entries</div>
                 <nav>
                     <ul class="pagination mb-0">
                         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>

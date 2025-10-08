@@ -30,6 +30,9 @@ public class Insuranceinformation {
 
     LocalDate issueDate;
 
+    @Column(columnDefinition = "TEXT")
+    String note; // ghi chú
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     User user;

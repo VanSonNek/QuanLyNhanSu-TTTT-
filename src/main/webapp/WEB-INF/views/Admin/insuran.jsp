@@ -63,10 +63,10 @@
             </li>
 
         </ul>
-
         <hr>
         <h6>QUẢN LÝ</h6>
         <ul>
+
             <li>
                 <details>
                     <summary><i class="fa-solid fa-shield-heart"></i> Thuế - Bảo hiểm</summary>
@@ -109,7 +109,6 @@
             </li>
 
         </ul>
-
     </div>
 
 
@@ -117,8 +116,8 @@
         <h3 class="mb-3">Quản lý Cơ quan Thuế</h3>
         <div class="card shadow-sm p-3">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold text-primary">Danh sách Cơ quan Thuế</h5>
-                <button class="btn btn-success">Thêm cơ quan mới</button>
+                <h5 class="fw-bold text-primary">Danh sách Bảo hiểm</h5>
+                <button class="btn btn-success">Bảo hiểm Xã hội</button>
             </div>
 
             <!-- Bộ lọc -->
@@ -143,24 +142,20 @@
             <table class="table table-striped align-middle table-bordered">
                 <thead class="table-light">
                 <tr>
-                    <th>Mã cơ quan</th>
-                    <th>Tên cơ quan quản lý thuế</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
+                    <th>Nơi đăng ký</th>
+                    <th>Nơi cấp</th>
+                    <th>Ngày cấp</th>
                     <th>Ghi chú</th>
-                    <th>Ngày đăng ký</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="tax" items="${taxList}">
+                <c:forEach var="insuran" items="${insuranList}">
                     <tr>
-                        <td>${tax.taxCode}</td>
-                        <td>${tax.authority}</td>
-                        <td>${tax.address}</td>
-                        <td>${tax.phone}</td>
-                        <td>${tax.note}</td>
-                        <td>${tax.registerDate}</td>
+                        <td>${insuran.registerPlace}</td>
+                        <td>${insuran.issuePlace}</td>
+                        <td>${insuran.issueDate}</td>
+                        <td>${insuran.note}</td>
                         <td>
                             <button class="btn btn-warning btn-sm">Sửa</button>
                             <button class="btn btn-danger btn-sm">Xóa</button>
@@ -172,7 +167,7 @@
 
             <!-- Phân trang -->
             <div class="d-flex justify-content-between align-items-center">
-                <div>Showing ${fn:length(taxList)} entries</div>
+                <div>Showing ${fn:length(insuranList)} entries</div>
                 <nav>
                     <ul class="pagination mb-0">
                         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>

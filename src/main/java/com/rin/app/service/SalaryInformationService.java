@@ -1,5 +1,6 @@
 package com.rin.app.service;
 
+import com.rin.app.entity.Insuranceinformation;
 import com.rin.app.entity.SalaryInformation;
 import com.rin.app.repository.SalaryInformationRepository;
 import lombok.AccessLevel;
@@ -19,5 +20,8 @@ public class SalaryInformationService {
 
     public List<SalaryInformation> getSalaryByUserId(Long userId) {
         return salaryInformationRepository.findByUser_Id(userId);
+    }
+    public List<SalaryInformation> findAllTax() {
+        return salaryInformationRepository.findAll();
     }
 }

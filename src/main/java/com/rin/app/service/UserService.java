@@ -32,4 +32,15 @@ public class UserService {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found with id " + userId));
     }
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+    public void updateUserRole(Long userId, String newRole) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy người dùng có ID: " + userId));
+
+        user.setRole(newRole);
+        userRepository.save(user);
+    }
+
 }
