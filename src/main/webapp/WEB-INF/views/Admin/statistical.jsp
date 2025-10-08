@@ -116,8 +116,9 @@
         <h3 class="mb-3">Quản lý Cơ quan Thuế</h3>
         <div class="card shadow-sm p-3">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold text-primary">Danh sách Cơ quan Thuế</h5>
-                <button class="btn btn-success">Thêm cơ quan mới</button>
+                <h5 class="fw-bold text-primary">Danh sách Bảo hiểm</h5>
+                <button class="btn btn-primary">Thêm mới</button>
+                <button class="btn btn-success">Xuất Excel</button>
             </div>
 
             <!-- Bộ lọc -->
@@ -142,24 +143,31 @@
             <table class="table table-striped align-middle table-bordered">
                 <thead class="table-light">
                 <tr>
-                    <th>Mã cơ quan</th>
-                    <th>Tên cơ quan quản lý thuế</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Ghi chú</th>
-                    <th>Ngày đăng ký</th>
+                    <th>Tháng</th>
+                    <th>Tên NV</th>
+                    <th>Lương cơ bản</th>
+                    <th>Thuế</th>
+                    <th>Thưởng</th>
+                    <th>Bị trừ(Nếu có)</th>
+                    <th>Tổng thực nhân</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="tax" items="${taxList}">
+                <c:forEach var="salary" items="${salaryList}">
                     <tr>
-                        <td>${tax.taxCode}</td>
-                        <td>${tax.authority}</td>
-                        <td>${tax.address}</td>
-                        <td>${tax.phone}</td>
-                        <td>${tax.note}</td>
-                        <td>${tax.registerDate}</td>
+                        <td>${salary.month}</td>
+                        <td>
+                            <c:if test="${not empty salary.user}">
+                                ${salary.user.username}
+                            </c:if>
+                        </td>
+                        <td>${salary.basicSalary}</td>
+                        <td>${salary.tax}</td>
+                        <td>${salary.bonus}</td>
+                        <td>0</td>
+                        <td>${salary.basicSalary}</td>
+                        <td><strong>${salary.totalReceived}</strong></td>
                         <td>
                             <button class="btn btn-warning btn-sm">Sửa</button>
                             <button class="btn btn-danger btn-sm">Xóa</button>
@@ -171,7 +179,7 @@
 
             <!-- Phân trang -->
             <div class="d-flex justify-content-between align-items-center">
-                <div>Showing ${fn:length(taxList)} entries</div>
+                <div>Showing ${fn:length(insuranList)} entries</div>
                 <nav>
                     <ul class="pagination mb-0">
                         <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>

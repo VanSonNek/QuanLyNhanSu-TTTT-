@@ -100,7 +100,7 @@
         <h6>THỐNG KÊ - BÁO CÁO</h6>
         <ul>
             <li>
-                <a href="/app/tax-information">
+                <a href="/app/statistical-admin">
                     <i class="fa-solid fa-chart-line"></i>Thông kê Lương
                 </a>
             </li>

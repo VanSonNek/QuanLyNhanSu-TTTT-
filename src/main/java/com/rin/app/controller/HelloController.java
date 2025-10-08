@@ -1,5 +1,6 @@
 package com.rin.app.controller;
 
+import com.rin.app.dto.request.AddstaffRequest;
 import com.rin.app.dto.request.LoginRequest;
 import com.rin.app.entity.Insuranceinformation;
 import com.rin.app.entity.SalaryInformation;
@@ -10,16 +11,15 @@ import com.rin.app.service.SalaryInformationService;
 import com.rin.app.service.TaxInformationService;
 import com.rin.app.service.UserService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,11 +39,6 @@ public class HelloController {
         return "redirect:/user/login";
     }
 
-    @GetMapping("register")
-    public String regisTer(Model model) {
-        model.addAttribute("message", "Hello World");
-        return "register";
-    }
 
     @GetMapping("/tax-information")
     public String taxinformation(Model model, HttpSession session) {
@@ -214,6 +209,68 @@ public class HelloController {
     ) {
         userService.updateUserRole(userId, role);
         return "redirect:/decentralization-admin";
+    }
+    @GetMapping("statistical-admin")
+    public String statisticaladmin(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("userId");
+        List<TaxInformation> taxList = taxInformationService.findAllTax();
+        List<Insuranceinformation> insuranList = insuranceInformationService.findAllTax();
+        List<SalaryInformation> salaryList = salaryInformationService.findAllTax();
+
+        // Lấy toàn bộ danh sách người dùng
+        List<User> allUsers = userService.findAll();
+
+        // 🔥 Lọc chỉ những người có role = "Nhân viên"
+        List<User> userlist = allUsers.stream()
+                .filter(u -> "Nhân viên".equalsIgnoreCase(u.getRole()))
+                .toList();
+
+        User user = userService.findByUserId(userId);
+
+        if (user != null) {
+            model.addAttribute("users", user);
+        }
+
+        model.addAttribute("userlist", userlist);
+        model.addAttribute("taxList", taxList);
+        model.addAttribute("insuranList", insuranList);
+        model.addAttribute("salaryList", salaryList);
+        return "Admin/statistical";
+    }
+    @GetMapping("/addstaff-admin")
+    public String regisTer(Model model) {
+        // ✅ Phải thêm đối tượng userRequest vào model
+        model.addAttribute("userRequest", new AddstaffRequest());
+        return "Admin/addstaff";
+    }
+
+
+    @PostMapping("/addstaff")
+    public String addStaff(
+            @Valid @ModelAttribute("userRequest") AddstaffRequest request,
+            BindingResult result,
+            Model model) {
+        // Nếu validate lỗi
+        if (result.hasErrors()) {
+            model.addAttribute("error", "Vui lòng kiểm tra lại dữ liệu!");
+            return "Admin/addstaff";
+        }
+        // Chuyển đổi từ request sang entity
+        User user = User.builder()
+                .username(request.getUsername())
+                .password(request.getPassword())
+                .ngaySinh(request.getNgaySinh())
+                .gioiTinh(request.getGioiTinh())
+                .cccd(request.getCccd())
+                .dienThoai(request.getDienThoai())
+                .email(request.getEmail())
+                .danToc(request.getDanToc())
+                .diaChi(request.getDiaChi())
+                .role("Nhân Viên")
+                .build();
+
+        userService.save(user);
+        return "redirect:/staff-admin";
     }
 
 

@@ -66,7 +66,6 @@
         <hr>
         <h6>QUẢN LÝ</h6>
         <ul>
-
             <li>
                 <details>
                     <summary><i class="fa-solid fa-shield-heart"></i> Thuế - Bảo hiểm</summary>
@@ -81,7 +80,7 @@
                 <details>
                     <summary><i class="fa-solid fa-money-bill-wave"></i> Nhân viên - Lương</summary>
                     <ul class="submenu">
-                        <li><a href="/app/tax-information"><i class="fa-solid fa-file-invoice-dollar"></i> Nhân viên</a></li>
+                        <li><a href="/app/staff-admin"><i class="fa-solid fa-file-invoice-dollar"></i> Nhân viên</a></li>
                         <li><a href="/app/salary-admin"><i class="fa-solid fa-hand-holding-medical"></i> Lương thưởng</a></li>
                     </ul>
                 </details>
@@ -93,7 +92,7 @@
                 </a>
             </li>
             <li>
-                <a href="/app/insurance-information">
+                <a href="/app/decentralization-admin">
                     <i class="fa-solid fa-gears"></i> Phân quyền
                 </a>
             </li>
@@ -103,12 +102,13 @@
         <h6>THỐNG KÊ - BÁO CÁO</h6>
         <ul>
             <li>
-                <a href="/app/tax-information">
+                <a href="/app/statistical-admin">
                     <i class="fa-solid fa-chart-line"></i>Thông kê Lương
                 </a>
             </li>
 
         </ul>
+
     </div>
 
 
